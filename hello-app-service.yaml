@@ -1,0 +1,33 @@
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: "2021-09-09T01:45:29Z"
+  labels:
+    app: hello-app
+  name: hello-app
+  namespace: default
+  resourceVersion: "17345"
+  uid: 0b655eeb-4908-42a5-ae84-9817f94b339c
+spec:
+  allocateLoadBalancerNodePorts: true
+  clusterIP: 10.97.20.201
+  clusterIPs:
+  - 10.97.20.201
+  externalTrafficPolicy: Cluster
+  internalTrafficPolicy: Cluster
+  ipFamilies:
+  - IPv4
+  ipFamilyPolicy: SingleStack
+  ports:
+  - nodePort: 30957
+    port: 8080
+    protocol: TCP
+    targetPort: 8080
+  selector:
+    app: hello-app
+  sessionAffinity: None
+  type: LoadBalancer
+status:
+  loadBalancer:
+    ingress:
+    - ip: 10.97.20.201
